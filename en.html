@@ -39,7 +39,7 @@
                                 <!-- Flyout menu for languages -->
                                 <span x-data="{ open: false }" class="relative">
                                     <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                                    <button @click="open = !open" type="button"
+                                    <button @click="open = !open" @click.away="open = false" type="button"
                                         class="group text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
                                         <span>EN</span>
                                         <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
@@ -133,11 +133,11 @@
                                 <span class="text-purple-600 text-5xl">Junior Web Developer</span>
                             </h2>
                             <p
-                                class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                                I'm a French worldwide traveler. Dynamic and curious, I am learning programming by
-                                myself for one year. </br>
-                                After 7 years working in tourism industry, I am looking for a new challenge and an
-                                experience which will let me use my skills and acquire new ones.
+                                class="mt-3 text-justify pr-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                I'm a French, dynamic and curious women. Passionate about programming, I've started
+                                learning it one year ago and, after 7 years working in tourism industry, I am looking
+                                for a new challenge and an
+                                experience to use my skills and gain new ones.
                             </p>
                             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start pb-5">
                                 <div class="rounded-md shadow lg:ml-20">
@@ -279,12 +279,11 @@
                                 <div class="ml-4">
                                     <h4 class="text-xl font-semibold text-gray-900">WEB DEVELOPEMENT
                                     </h4>
-                                    <p class="text-base leading-6 text-gray-500">
+                                    <p class="text-base text-justify leading-6 text-gray-500">
                                         <strong>I like to code</strong> things from scratch, and <strong>enjoy bringing
-                                            ideas to life in
-                                            the browser</strong>.</br>
-                                        Taking part of a <strong>team project</strong> is also something I love. I see
-                                        it as an oportunity to share and open myself to new knowledges.</br>
+                                            ideas to life in the browser</strong> by my own or by taking part of a
+                                        <strong>team project</strong>. Having teammates is an oportunity to share and
+                                        open myself to new knowledges.
                                         From simple pages using HTML, CSS and JavaScript to more complex projects in
                                         Python using Django framework : <strong>every challenge is exciting</strong> and
                                         a way to gain new skills!
@@ -308,14 +307,15 @@
                                 <div class="ml-4">
                                     <h4 class="text-xl font-semibold text-gray-900">DESIGN
                                     </h4>
-                                    <p class="text-base leading-6 text-gray-500">
+                                    <p class="text-base leading-6 text-justify text-gray-500">
                                         <strong>I love to create and design things!</strong> With my best friend
                                         Photoshop, I can
                                         design logos, communication media such as posters or booklets, website
                                         wireframes...</br>
                                         <strong>Adaptability is my leitmotiv</strong>: your product design should be as
-                                        unique as you!</br>
-                                        My goals are to focus on typography, content and conveying the message that you
+                                        unique as you!
+                                        But I like to keep it simple and to focus on typography, content and conveying
+                                        the message that you
                                         want to send.
                                     </p>
                                 </div>
@@ -335,12 +335,13 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-xl font-semibold text-gray-900">CUSTOMER RELATIONSHIP MANAGEMENT
+                                    <h4 class="text-xl text-justify font-semibold text-gray-900">CUSTOMER RELATIONSHIP
+                                        MANAGEMENT
                                     </h4>
                                     <p class="text-base leading-6 text-gray-500">
                                         Thanks to my experience in tourism industry, I know how to <strong>create a
-                                            peacefull relationship with customers.</strong></br>
-                                        I like to listen to customer needs or claims and <strong>find the solution that
+                                            peacefull relationship with customers.</strong>
+                                        I like to listen to their needs or claims and <strong>find the solution that
                                             fits the best</strong>.
                                         Of course, <strong>communication is really important</strong> in the process and
                                         phone calls, e-mails and face to face meetings help me in it.
@@ -378,24 +379,21 @@
                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                                 <div class="flex-1">
                                     <p class="text-sm leading-5 font-medium text-purple-600">
-                                        <a href="#" class="hover:underline">
-                                            Web & Design
-                                        </a>
+                                        Web & Design
                                     </p>
                                     <div class="block">
                                         <h3 class="mt-2 text-xl text-center leading-7 font-semibold text-gray-900">
-                                            Web Design of Flakyci.com
+                                            Flakyci.com
                                         </h3>
-                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                        <p class="mt-3 text-base text-justify leading-6 text-gray-500">
                                             FlakyCI is an <strong>online tool for developers</strong> who wish to find,
-                                            track and fix
-                                            flaky tests.</br>
-                                            I created <strong>a logo that fits with the product</strong> : minimalist
-                                            and tech-oriented.</br>
-                                            I <strong>designed the different parts of the website</strong> using the
-                                            framework TailwindUI : </br>
-                                            . the home page which present the product and the pricing,</br>
-                                            . the membership area pages with a dashboard.</br>
+                                            track and fix flaky tests.</br>
+                                            I worked on the design of this exciting project : I've designed <strong>a
+                                                logo that fits with this tech-oriented product</strong> and <strong> the
+                                                different parts of the website</strong> from the
+                                            home page to the membership area and its dashboard. To help me in this task,
+                                            my teammate introduce me to the framework Tailwind CSS : a great discovery!
+                                            </br>
                                             This project is still on progress, and new functions and tools will be added
                                             soon.
                                         </p>
@@ -415,22 +413,21 @@
                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                                 <div class="flex-1">
                                     <p class="text-sm leading-5 font-medium text-purple-600">
-                                        <a href="#" class="hover:underline">
-                                            Web & Design
-                                        </a>
+                                        Web & Design
                                     </p>
                                     <div class="block">
                                         <h3 class="mt-2 text-xl text-center leading-7 font-semibold text-gray-900">
-                                            Website & communication for Ama Tu Luna
+                                            Ama Tu Luna
                                         </h3>
-                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                        <p class="mt-3 text-base leading-6 text-justify text-gray-500">
                                             This NGO is working on <strong>humanitarian projects for women </strong>
                                             around the world.</br>
                                             Its team asked me to create <strong>several communication media</strong>
                                             such as a booklet to explain its actions and an explanatory note for its
                                             products (washable sanitary pads). The documents were producted in 4
                                             languages and spread in 4 continents.</br>
-                                            I have also <strong>designed and created its website in 4
+                                            As printed communication is not enough in 21st Century, I have also
+                                            <strong>designed and made a website in 4
                                                 languages</strong> using Photshop and Mobirise.
                                         </p>
                                     </div>
@@ -461,21 +458,20 @@
                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                                 <div class="flex-1">
                                     <p class="text-sm leading-5 font-medium text-purple-600">
-                                        <a href="#" class="hover:underline">
-                                            Crafts
-                                        </a>
+                                        Crafts
                                     </p>
                                     <div class="block">
                                         <h3 class="mt-2 text-center text-xl leading-7 font-semibold text-gray-900">
-                                            Opening of L'Atelier des Z'Héros on Etsy
+                                            L'Atelier des Z'Héros on Etsy
                                         </h3>
-                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                        <p class="mt-3 text-base leading-6 text-justify text-gray-500">
                                             I'm keen on sewing for more than 5 years now and I opened <strong>my shop on
-                                                Etsy marketplace</strong> in March 2020. </br>
-                                            I create and sell <strong>zero-waste products</strong> made from recycled
-                                            fabrics.</br>
-                                            Face masks are my best-seller!</br>
-                                            I take care of order management, <strong>contact with customers</strong> and
+                                                Etsy marketplace</strong> in March 2020. In L'Atelier des Z'Héros, I
+                                            sell <strong>zero-waste products</strong> that I make from recycled
+                                            fabrics.
+                                            Believe it or not, face masks are my best-seller!
+                                            <strong>This adventure is more than just sewing!</strong> I also take care
+                                            of marketing, order management, <strong>contact with customers</strong> and
                                             delivery logistics.
                                         </p>
                                     </div>
@@ -495,22 +491,20 @@
                             <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                                 <div class="flex-1">
                                     <p class="text-sm leading-5 font-medium text-purple-600">
-                                        <a href="#" class="hover:underline">
-                                            Design
-                                        </a>
+                                        Design
                                     </p>
                                     <div class="block">
                                         <h3 class="mt-2 text-center text-xl leading-7 font-semibold text-gray-900">
-                                            Posters creation for a Music School
+                                            Poisy Music School
                                         </h3>
-                                        <p class="mt-3 text-base leading-6 text-gray-500">
-                                            Between 2010 and 2016, I worked with my hometown Music School.</br>
-                                            I first created <strong>a colorfull logo</strong> for it.</br>
-                                            Then, I created posters for its concerts and booklets about its activities.
-                                            </br>
+                                        <p class="mt-3 text-base text-justify leading-6 text-gray-500">
+                                            Between 2010 and 2018, I helped my hometown Music School in its
+                                            communication with the design of <strong>a colorfull logo</strong>, posters
+                                            for its concerts and booklets about its activities.
                                             I also took part in the <strong>organization of a week of events</strong>
-                                            for its 30th
-                                            anniversary.
+                                            for its 30th anniversary : one show per evening and a musical walk in
+                                            nature.
+                                            Thanks to this partnership, I also designed my hometown carnival posters.
                                         </p>
                                     </div>
                                     <div class="text-center mt-3">
