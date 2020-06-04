@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elise Dujardin - Web Developer Junior</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-gray-800">
+        <div x-data="{ open: false }" class="relative bg-white overflow-hidden">
+            <div class="max-w-screen-xl mx-auto ">
+                <div class="relative z-10 bg-white lg:max-w-2xl lg:w-full">
+                    <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+                        fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polygon points="50,0 100,0 50,100 0,100" />
+                    </svg>
+
+                    <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+                        <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
+                            <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                                <div class="flex items-center justify-between w-full md:w-auto">
+                                    <div class="-mr-2 flex items-center md:hidden">
+                                        <button @click="open = true" type="button"
+                                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 6h16M4 12h16M4 18h16" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Top Menu - Computer version -->
+                            <div class="hidden md:block md:ml-10 md:pr-4">
+                                <!-- Flyout menu for languages -->
+                                <span x-data="{ open: false }" class="relative">
+                                    <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
+                                    <button @click="open = !open" type="button"
+                                        class="group text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
+                                        <span>EN</span>
+                                        <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
+                                        <svg x-bind:class="{ '-rotate-180': open }" class="rotate-0 h-4 w-4 transform"
+                                            stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                    <div x-show="open" class="absolute transform w-auto sm:px-0">
+                                        <div class="rounded-lg">
+                                            <div class="rounded-lg overflow-hidden">
+                                                <div class="z-20 relative grid bg-white px-2 py-2 sm:p-2">
+                                                    <a href="http://elisedjn.github.io/en"
+                                                        class="-m-3 py-3 px-1 block space-y-1 rounded-md text-gray-500 hover:text-gray-900 transition ease-in-out duration-150">
+                                                        FR
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                                <a href="#accueil"
+                                    class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Accueil</a>
+                                <a href="#competences"
+                                    class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Compétences</a>
+                                <a href="#parcours"
+                                    class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Parcours</a>
+                                <a href="#realisations"
+                                    class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Réalisations</a>
+                                <a href="#contact"
+                                    class="ml-8 font-medium text-purple-600 hover:text-purple-900 focus:outline-none focus:text-purple-700 transition duration-150 ease-in-out">Contact</a>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!--
+              Mobile menu, show/hide based on menu open state.
+      
+              Entering: "duration-150 ease-out"
+                From: "opacity-0 scale-95"
+                To: "opacity-100 scale-100"
+              Leaving: "duration-100 ease-in"
+                From: "opacity-100 scale-100"
+                To: "opacity-0 scale-95"
+            -->
+                    <div x-show="open" style="display: none;"
+                        class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+                        <div class="rounded-lg shadow-md">
+                            <div class="rounded-lg bg-white shadow-xs overflow-hidden">
+                                <div class="px-5 pt-4 flex items-center justify-between">
+                                    <div>
+                                        <img class="h-8 w-auto" src="/img/logos/workflow-mark-on-white.svg" alt="" />
+                                    </div>
+                                    <div class="-mr-2">
+                                        <button @click="open = false" type="button"
+                                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="px-2 pt-2 pb-3">
+                                    <a href="#accueil"
+                                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Accueil</a>
+                                    <a href="#competences"
+                                        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Compétences</a>
+                                    <a href="#parcours"
+                                        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Parcours</a>
+                                    <a href="#realisations"
+                                        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Réalisations</a>
+                                    <a href="http://elisedjn.github.io/en"
+                                        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">English
+                                        Version</a>
+                                </div>
+                                <div>
+                                    <a href="#contact"
+                                        class="block w-full px-5 py-3 text-center font-medium text-purple-600 bg-gray-50 hover:bg-gray-100 hover:text-purple-700 focus:outline-none focus:bg-gray-100 focus:text-purple-700 transition duration-150 ease-in-out">
+                                        Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                        <div id="accueil" class="sm:text-center lg:text-left">
+                            <h2
+                                class="text-5xl tracking-tight leading-10 font-extrabold text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
+                                Elise DUJARDIN
+                                <br />
+                                <span class="text-purple-600 text-5xl">Web Developer Junior</span>
+                                <br />
+                                <span class="text-gray-600 text-4xl align-top">en alternance</span>
+                            </h2>
+                            <p
+                                class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Bonjour et Bienvenue! <br /></br>
+                                Vous trouverez ici <strong>mon parcours et mes réalisations</strong> en lien avec la
+                                reconversion professionnelle que j'entreprends.<br />
+                                En effet, après m'être initiée à différents langages informatiques en autodidacte, je
+                                recherche un <a href="https://openclassrooms.com/fr/paths/185-developpeur-web"
+                                    class="text-pink-500 font-bold hover:underline" target="_blank">contrat de
+                                    professionnalisation pour
+                                    une formation de Développeuse Web Junior</a> d'un an en alternance avec
+                                OpenClassrooms.</br></br>
+                                Merci de votre attention, et bonne découverte!
+                            </p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start pb-5">
+                                <div class="rounded-md shadow">
+                                    <a href="#competences"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-pink-600 hover:bg-pink-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                        Mes Compétences
+                                    </a>
+                                </div>
+                                <div class="mt-3 sm:mt-0 sm:ml-3">
+                                    <a href="#realisations"
+                                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-purple-600 hover:bg-purple-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                        Mes Réalisations
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="img/elise.jpg"
+                    alt="Elise Dujardin" />
+            </div>
+        </div>
+
+        <!--Compétences-->
+        <div class="bg-white" id="competences">
+            <div class="px-4 pt-8 pb-3 sm:px-6 flex justify-center">
+                <h2 class="text-2xl text-center font-extrabold text-gray-800 sm:text-3xl sm:leading-9">
+                    MES COMPÉTENCES
+                    <svg height="6" width="350" class="mt-2">
+                        <line x1="0" y1="0" x2="350" y2="0" style="stroke:#2D3748;stroke-width:5" />
+                    </svg>
+                </h2>
+            </div>
+            <div class="pb-5">
+                <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex">
+                    <div class="bg-purple-500 rounded-lg p-4">
+                        <h3 class="font-bold text-white text-xl text-center mb-5">
+                            LANGAGES DE </br>
+                            PROGRAMMATION
+                        </h3>
+                        <ul class="text-gray-800 text-lg">
+                            <li class="mb-5">
+                                <div class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2" role="img" viewBox="0 0 24 24" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <title>HTML5 icon</title>
+                                        <path
+                                            d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
+                                    </svg>
+                                    HTML 5
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="120" height="50">
+                                    <image x="0px" y="0px" width="120px" height="50px"
+                                        xlink:href="data:img/png;base64,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" />
+                                </svg>
+                            </li>
+                            <li class="mb-5">
+                                <div class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2" fill="currentColor" role="img" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <title>CSS3 icon</title>
+                                        <path
+                                            d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
+                                    </svg>
+                                    CSS3
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="120" height="50">
+                                    <image x="0px" y="0px" width="120px" height="50px"
+                                        xlink:href="data:img/png;base64,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" />
+                                </svg>
+                            </li>
+                            <li class="mb-5">
+                                <div class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2" fill="currentColor" role="img" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <title>JavaScript icon</title>
+                                        <path
+                                            d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" />
+                                    </svg>
+                                    JavaScript
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="120" height="50">
+                                    <image x="0px" y="0px" width="120px" height="50px"
+                                        xlink:href="data:img/png;base64,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" />
+                                </svg>
+                            </li>
+                            <li class="mb-5">
+                                <div class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg" role="img">
+                                        <title>Python icon</title>
+                                        <path
+                                            d="M14.31.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.83l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.23l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.24l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05 1.07.13zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09-.33.22zM21.1 6.11l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01.21.03zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08-.33.23z" />
+                                    </svg>
+                                    Python
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="120" height="50">
+                                    <image x="0px" y="0px" width="120px" height="50px"
+                                        xlink:href="data:img/png;base64,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" />
+                                </svg>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2" fill="currentColor" role="img" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <title>Elixir icon</title>
+                                        <path
+                                            d="M19.789,16.578c0,3.75-2.926,7.422-7.739,7.422c-5.246,0-7.839-3.708-7.839-8.285 c0-5.207,3.89-12.946,7.995-15.639c0.277-0.182,0.643,0.041,0.611,0.371c-0.03,0.313-0.046,0.631-0.046,0.951 c0,2.067,0.641,3.985,1.738,5.563c0.522,0.795,1.092,1.477,1.763,2.351c0.94,1.226,1.636,1.905,2.642,3.84 c0.005,0.01,0.01,0.018,0.015,0.028C19.48,14.197,19.789,15.352,19.789,16.578z" />
+                                    </svg>
+                                    Elixir
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="120" height="50">
+                                    <image x="0px" y="0px" width="120px" height="50px"
+                                        xlink:href="data:img/png;base64,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" />
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-2/3 px-5 mx-auto">
+                        <div class="border-gray-200 pt-6">
+                            <dl>
+                                <div x-data="{ open: false }">
+                                    <dt class="text-lg leading-7">
+                                        <!-- Expand/collapse question button -->
+                                        <button @click="open = !open"
+                                            class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
+                                            <span class="font-medium text-gray-900">
+                                                Mener des projets au sein d'une équipe
+                                            </span>
+                                            <span class="ml-6 h-7 flex items-center">
+                                                <!--
+                                      Expand/collapse icon, toggle classes based on question open state.
+                  
+                                      Open: "-rotate-180", Closed: "rotate-0"
+                                    -->
+                                                <svg x-bind:class="{ '-rotate-180': open }"
+                                                    class="rotate-0 h-6 w-6 transform" stroke="currentColor" fill="none"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </dt>
+                                    <dd x-show="open" class="mt-2 pr-12">
+                                        <p class="text-base leading-6">
+                                        <h4 class="text-gray-500 font-semibold">Outils utilisés :</h4>
+                                        <span class="text-gray-500">
+                                            Outlook, Mail, Google Doc, Word, Excel
+                                        </span>
+                                        <h4 class="text-gray-500 font-semibold">Contextes :</h4>
+                                        <span class="text-gray-500">
+                                            . Suivi de la refonte d'un site web commercial lors de mon poste en agence
+                                            immobilière, en collaboration avec l'agence de webdesign
+                                        </span>
+                                        <h4 class="text-gray-500 font-semibold">Résultats :</h4>
+                                        <span class="text-gray-500">
+                                            . Le site <a href="https://www.agencesaulire.com/" target="_blank"
+                                                class="text-purple-400 hover:underline">agencesaulire.com</a> a été
+                                            totalement refondu et traduit en 4 langues. Il a été mis en ligne après 3
+                                            mois de travail, à temps pour les réservations de la saison suivante.</br>
+                                        </span>
+                                        </p>
+                                    </dd>
+                                </div>
+                                <div class="mt-6 border-t border-gray-200 pt-6">
+                                    <div x-data="{ open: false }">
+                                        <dt class="text-lg leading-7">
+                                            <!-- Expand/collapse question button -->
+                                            <button @click="open = !open"
+                                                class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
+                                                <span class="font-medium text-gray-900">
+                                                    Apprendre en autonomie
+                                                </span>
+                                                <span class="ml-6 h-7 flex items-center">
+                                                    <!--
+                                        Expand/collapse icon, toggle classes based on question open state.
+                  
+                                        Open: "-rotate-180", Closed: "rotate-0"
+                                      -->
+                                                    <svg x-bind:class="{ '-rotate-180': open }"
+                                                        class="rotate-0 h-6 w-6 transform" stroke="currentColor"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </dt>
+                                        <dd x-show="open" class="mt-2 pr-12">
+                                            <p class="text-base leading-6 text-gray-500">
+                                            <h4 class="text-gray-500 font-semibold">Outils utilisés :</h4>
+                                            <span class="text-gray-500">
+                                                Plateforme d'apprentissage en ligne avec OpenClassrooms et le CNED,
+                                                Excel
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Contextes :</h4>
+                                            <span class="text-gray-500">
+                                                . Apprentissage de différents langages informatiques en autodidacte
+                                                </br>
+                                                . Préparation du BTS Tourisme par correspondance
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Résultats :</h4>
+                                            <span class="text-gray-500">
+                                                . Bases acquises dans différents langages informatiques (voir ci-contre)
+                                                </br>
+                                                . Obtention du BTS qui m'a permis d'enchainer sur une Licence à
+                                                l'Université
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Preuves :</h4>
+                                            <span class="text-gray-500">
+                                                . Cette page web a été entièrement codée par mes soins </br>
+                                                . <a href="img/diplomes-oc.pdf" target="_blank"
+                                                    class="text-purple-400 hover:underline">Différents certificats
+                                                    obtenus sur OpenClassrooms</a></br>
+                                                . <a href="img/diplomes-bts-l3.pdf" target="_blank"
+                                                    class="text-purple-400 hover:underline">Diplôme du BTS et de la
+                                                    Licence</a>
+                                            </span>
+                                            </p>
+                                        </dd>
+                                    </div>
+                                </div>
+                                <div class="mt-6 border-t border-gray-200 pt-6">
+                                    <div x-data="{ open: false }">
+                                        <dt class="text-lg leading-7">
+                                            <!-- Expand/collapse question button -->
+                                            <button @click="open = !open"
+                                                class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
+                                                <span class="font-medium text-gray-900">
+                                                    Créer des supports de communication adaptés
+                                                </span>
+                                                <span class="ml-6 h-7 flex items-center">
+                                                    <!--
+                                        Expand/collapse icon, toggle classes based on question open state.
+                  
+                                        Open: "-rotate-180", Closed: "rotate-0"
+                                      -->
+                                                    <svg x-bind:class="{ '-rotate-180': open }"
+                                                        class="rotate-0 h-6 w-6 transform" stroke="currentColor"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </dt>
+                                        <dd x-show="open" class="mt-2 pr-12">
+                                            <p class="text-base leading-6 text-gray-500">
+                                            <h4 class="text-gray-500 font-semibold">Outils utilisés :</h4>
+                                            <span class="text-gray-500">
+                                                Adobe Photoshop, Adobe Lightroom
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Contextes :</h4>
+                                            <span class="text-gray-500">
+                                                . Promotion tout au long de l'année des concerts d'une école de musique
+                                                communale </br>
+                                                . Création de brochures et de notices en plusieurs langues ainsi que
+                                                d'un calendrier menstruel pour une association humanitaire
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Résultats :</h4>
+                                            <span class="text-gray-500">
+                                                . L'école de musique a été contente de mes premières affiches et nous
+                                                avons collaboré pendant plusieurs années </br>
+                                                . Les brochures ont été distribuées en Argentine, en Italie, au Kenya et
+                                                en Inde pour promouvoir les actions de l'association. </br>
+                                                . La notice est incluse dans leur nouveau produit.</br>
+                                                . Le calendrier a été distribué à plus de 600 jeunes au Kenya et le sera
+                                                bientôt en Inde
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Preuves :</h4>
+                                            <span class="text-gray-500">
+                                                . Visualiser le book <a href="img/book_edujardin_affiches.pdf"
+                                                    target="_blank" class="text-purple-400 hover:underline">"Ecole de
+                                                    Musique"</a></br>
+                                                . Visualiser le book <a href="img/book_edujardin_amatuluna.pdf"
+                                                    target="_blank"
+                                                    class="text-purple-400 hover:underline">"Association"</a></br>
+                                                . Capture d'écran conversation WhatsApp concernant la distribution des
+                                                calendriers à plus de 600 personnes
+                                                <div class="flex-shrink-0">
+                                                    <img class="w-50 object-cover"
+                                                        src="img/conversation-ama-tu-luna.png"
+                                                        alt="Calendrier Ama Tu Luna" />
+                                                </div>
+
+                                            </span>
+                                            </p>
+                                        </dd>
+                                    </div>
+                                </div>
+                                <div class="mt-6 border-t border-gray-200 pt-6">
+                                    <div x-data="{ open: false }">
+                                        <dt class="text-lg leading-7">
+                                            <!-- Expand/collapse question button -->
+                                            <button @click="open = !open"
+                                                class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
+                                                <span class="font-medium text-gray-900">
+                                                    Apporter une aide au design de site web
+                                                </span>
+                                                <span class="ml-6 h-7 flex items-center">
+                                                    <!--
+                                        Expand/collapse icon, toggle classes based on question open state.
+                  
+                                        Open: "-rotate-180", Closed: "rotate-0"
+                                      -->
+                                                    <svg x-bind:class="{ '-rotate-180': open }"
+                                                        class="rotate-0 h-6 w-6 transform" stroke="currentColor"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </dt>
+                                        <dd x-show="open" class="mt-2 pr-12">
+                                            <p class="text-base leading-6 text-gray-500">
+                                            <h4 class="text-gray-500 font-semibold">Outils utilisés :</h4>
+                                            <span class="text-gray-500">
+                                                Visual Studio Code, GitHub, framework TailwindUi
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Contexte :</h4>
+                                            <span class="text-gray-500">
+                                                Projet d'outil en ligne d'optimisation de tests pour les développeurs :
+                                                une partie vitrine et un dashboard
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Résultat :</h4>
+                                            <span class="text-gray-500">
+                                                . Le site <a href="https://www.flakyci.com/" target="_blank"
+                                                    class="text-purple-400 hover:underline">flakyci.com</a> est en ligne
+                                                et opérationnel.
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Preuve :</h4>
+                                            <span class="text-gray-500">
+                                                . Extrait de code de la page d'accueil du site
+                                                <div class="flex-shrink-0">
+                                                    <img class="w-50 object-cover" src="img/flaky.png"
+                                                        alt="Code Flakyci" />
+                                                </div>
+                                            </span>
+                                            </p>
+                                        </dd>
+                                    </div>
+                                </div>
+                                <div class="mt-6 border-t border-gray-200 pt-6">
+                                    <div x-data="{ open: false }">
+                                        <dt class="text-lg leading-7">
+                                            <!-- Expand/collapse question button -->
+                                            <button @click="open = !open"
+                                                class="text-left w-full flex justify-between items-start text-gray-400 focus:outline-none focus:text-gray-900">
+                                                <span class="font-medium text-gray-900">
+                                                    Gérer des plannings et des deadlines
+                                                </span>
+                                                <span class="ml-6 h-7 flex items-center">
+                                                    <!--
+                                        Expand/collapse icon, toggle classes based on question open state.
+                  
+                                        Open: "-rotate-180", Closed: "rotate-0"
+                                      -->
+                                                    <svg x-bind:class="{ '-rotate-180': open }"
+                                                        class="rotate-0 h-6 w-6 transform" stroke="currentColor"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </dt>
+                                        <dd x-show="open" class="mt-2 pr-12">
+                                            <p class="text-base leading-6 text-gray-500">
+                                            <h4 class="text-gray-500 font-semibold">Outils utilisés :</h4>
+                                            <span class="text-gray-500">
+                                                Retro-planning, Excel, Google Doc, Tableau de suivi de tâches
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Contexte :</h4>
+                                            <span class="text-gray-500">
+                                                . Montage de dossier et suivi de la procédure administrative pour une
+                                                démarche de classement en Station de Tourisme d'une station de sports
+                                                d'hiver
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Résultats :</h4>
+                                            <span class="text-gray-500">
+                                                . La station de La Tania a été classée Station de Tourisme (cette
+                                                station est aujourd'hui fusionnée avec Courchevel)
+                                            </span>
+                                            <h4 class="text-gray-500 font-semibold">Preuves :</h4>
+                                            <span class="text-gray-500">
+                                                . Tableau d'autocontrole pour la constitution du dossier
+                                                <div class="flex-shrink-0">
+                                                    <img class="w-50 object-cover" src="img/tableau-controle.png"
+                                                        alt="Tableau AutoControle" />
+                                                </div>
+                                            </span>
+                                            </p>
+                                        </dd>
+                                    </div>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Formation-->
+        <div class="bg-gray-200" id="parcours">
+            <div class="px-4 py-3 sm:px-6 flex justify-center">
+                <h2 class="text-2xl text-center font-extrabold text-gray-800 sm:text-3xl sm:leading-9">
+                    MON PARCOURS
+                    <svg height="6" width="350" class="mt-2">
+                        <line x1="0" y1="0" x2="350" y2="0" style="stroke:#2D3748;stroke-width:5" />
+                    </svg>
+                </h2>
+            </div>
+            <div class="text-center">
+                <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
+                    Seules les expériences qui peuvent s'avérer pertinentes pour ma reconversion professionnelle sont
+                    mentionnées ici.
+                </p>
+            </div>
+            <div class="flex mx-auto px-32">
+                <div class="border-r-8 border-purple-500">
+                </div>
+                <div>
+                    <div class="pt-5 flex">
+                        <div>
+                            <svg height="10" width="50" class="mt-2 pr-2">
+                                <line x1="0" y1="0" x2="50" y2="0" style="stroke:#9F7AEA;stroke-width:10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div>
+                                <strong>2020 – 2021 |</strong> Développeur Web - Diplôme RNCP de niveau V -
+                                <span class="italic font-thin">OpenClassrooms formation en alternance en 12 mois</span>
+                            </div>
+                            <div class="text-gray-500">
+                                Compétences qui seront développées : </br>
+                                <ul>
+                                    <li>
+                                        . Passer d'une maquette graphique à un projet en HTML5 et CSS avec de l'audio,
+                                        de la vidéo, des animations...
+                                    </li>
+                                    <li>
+                                        . Appliquer les standards du web, les normes en vigueur, le SEO
+                                    </li>
+                                    <li>
+                                        . Construire un site web fluide, responsive, avec des données tierces (API) et
+                                        des comptes utilisateurs
+                                    </li>
+                                    <li>
+                                        . Créer, gérer et afficher le contenu d’une base de données
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-5 flex">
+                        <div>
+                            <svg height="10" width="50" class="mt-2 pr-2">
+                                <line x1="0" y1="0" x2="50" y2="0" style="stroke:#9F7AEA;stroke-width:10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div>
+                                <strong>2018 - 2020 |</strong> Employée polyvalente saisonnière -
+                                <span class="italic font-thin">Auberge de Jeunesse de La Clusaz</span>
+                            </div>
+                            <div class="text-gray-500">
+                                Compétences développées : </br>
+                                <ul>
+                                    <li>
+                                        . Gérer le planning de 4 à 5 employés en saison (tâches à effectuer et jours de
+                                        congé)
+                                    </li>
+                                    <li>
+                                        . Maintenir des locaux recevant du public propres et en ordre
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-5 flex">
+                        <div>
+                            <svg height="10" width="50" class="mt-2 pr-2">
+                                <line x1="0" y1="0" x2="50" y2="0" style="stroke:#9F7AEA;stroke-width:10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div>
+                                <strong>2015 - 2018 |</strong> Agent de réservation au service Locations -
+                                <span class="italic font-thin">Agence Immobilière - Méribel </span>
+                            </div>
+                            <div class="text-gray-500">
+                                Compétences développées : </br>
+                                <ul>
+                                    <li>
+                                        . Suivre la refonte d'un site web commercial en collaboration avec une agence
+                                        spécialisée en web design
+                                    </li>
+                                    <li>
+                                        . Gérer une réservation et son paiement du premier contact par mail ou téléphone
+                                        jusqu'au départ du client
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-5 flex">
+                        <div>
+                            <svg height="10" width="50" class="mt-2 pr-2">
+                                <line x1="0" y1="0" x2="50" y2="0" style="stroke:#9F7AEA;stroke-width:10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div>
+                                <strong>2012 – 2013 | </strong> Licence Tourisme Hôtellerie Loisirs -
+                                <span class="italic font-thin">IAE Savoie Mont-Blanc et Universidad de Alicante
+                                    (Espagne) -
+                                    mention Très Bien </span>
+                            </div>
+                            <div class="text-gray-500">
+                                Compétences développées : </br>
+                                <ul>
+                                    <li>
+                                        . Mener des projets en groupe, notamment avec des personnes de nationalités
+                                        différentes et parlant une autre langue
+                                    </li>
+                                    <li>
+                                        . S'adapter à des cultures différentes lors d'un semestre en Espagne
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-5 flex pb-8">
+                        <div>
+                            <svg height="10" width="50" class="mt-2 pr-2">
+                                <line x1="0" y1="0" x2="50" y2="0" style="stroke:#9F7AEA;stroke-width:10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div>
+                                <strong>2010 – 2012 |</strong> BTS Animation et Gestion Touristiques Locales -
+                                <span class="italic font-thin">Centre National d’Enseignement à Distance</span>
+                            </div>
+                            <div class="text-gray-500">
+                                Compétences développées : </br>
+                                <ul>
+                                    <li>
+                                        . Étudier en autonomie, avec des cours par correspondance et un envoi régulier
+                                        de travaux à corriger
+                                    </li>
+                                    <li>
+                                        . Préparer et se présenter à un examen en candidat libre - gestion du stress, de
+                                        l'administratif...
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Réalisations-->
+        <div class="bg-white" id="realisations">
+            <div class="px-4 py-3 sm:px-6 flex justify-center">
+                <h2 class="text-2xl text-center font-extrabold text-gray-800 sm:text-3xl sm:leading-9">
+                    MES RÉALISATIONS
+                    <svg height="6" width="350" class="mt-2">
+                        <line x1="0" y1="0" x2="350" y2="0" style="stroke:#2D3748;stroke-width:5" />
+                    </svg>
+                </h2>
+            </div>
+            <div class="relative bg-gray-50 pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8">
+                <div class="absolute inset-0">
+                    <div class="bg-white h-1/3 sm:h-2/3"></div>
+                </div>
+                <div class="relative max-w-7xl mx-auto">
+                    <div class="text-center">
+                        <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
+                            Ces différents projets ont été réalisés aussi bien lors de mes études, de ma carrière
+                            professionnelle ou de ma vie personnelle.
+                        </p>
+                    </div>
+                    <!-- Première ligne-->
+                    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
+                        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                            <div class="flex-shrink-0">
+                                <img class="h-60 w-full object-cover" src="img/flaky.png" alt="flakyci" />
+                            </div>
+                            <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                                <div class="flex-1">
+                                    <p class="text-sm leading-5 font-medium text-purple-600">
+                                        <a href="#" class="hover:underline">
+                                            Web
+                                        </a>
+                                    </p>
+                                    <div class="block">
+                                        <h3 class="mt-2 text-xl text-center leading-7 font-semibold text-gray-900">
+                                            Aide au design de flakyci.com
+                                        </h3>
+                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                            <strong>Flakyci est un outil destiné aux développeurs web</strong> qui
+                                            souhaitent optimiser leur code en réduisant le nombre de tests qui ont un
+                                            résultat aléatoire (flaky tests).</br>
+                                            Ce projet est toujours en cours de réalsation. </br>
+                                            J'aide au <strong>design des différentes parties du site web </strong> (page
+                                            vitrine et dashboard) avec le framework Tailwindui. J'utilise également
+                                            <strong>Visual Studio Code et Github</strong> pour le suivi du projet.
+                                        </p>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a href="https://www.flakyci.com/" target="_blank" class="text-purple-600">
+                                            Visiter flakyci.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                            <div class="flex-shrink-0">
+                                <img class="h-60 w-full object-cover" src="img/adz.png" alt="Atelier des Z'Héros" />
+                            </div>
+                            <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                                <div class="flex-1">
+                                    <p class="text-sm leading-5 font-medium text-purple-600">
+                                        <a href="#" class="hover:underline">
+                                            Artisanat
+                                        </a>
+                                    </p>
+                                    <div class="block">
+                                        <h3 class="mt-2 text-center text-xl leading-7 font-semibold text-gray-900">
+                                            Ouverture de L'Atelier des Z'Héros sur Etsy
+                                        </h3>
+                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                            Passionnée de couture depuis plus de 5 ans, j'ai ouvert <strong>ma boutique
+                                                sur le marketplace Etsy</strong> en mars 2020. </br>
+                                            Je confectionne et commercialise <strong>des objets zéro
+                                                déchet</strong> réalisés en tissus recyclés. </br>
+                                            Les masques de protection en tissus sont mon best-seller!</br>
+                                            J'assure le suivi des commandes, <strong>le contact avec les
+                                                clients</strong> et la préparation des envois.
+                                        </p>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a href="https://www.etsy.com/fr/shop/LAtelierDesZHeros" target="_blank"
+                                            class="text-purple-600">
+                                            Visiter l'Atelier des Z'Héros
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                            <div class="flex-shrink-0">
+                                <img class="h-60 w-full object-cover" src="img/amatulunaflyer.jpg"
+                                    alt="Ama Tu Luna Flyers" />
+                            </div>
+                            <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                                <div class="flex-1">
+                                    <p class="text-sm leading-5 font-medium text-purple-600">
+                                        <a href="#" class="hover:underline"> Graphisme</a>
+                                    </p>
+                                    <div class="block">
+                                        <h3 class="mt-2 text-xl leading-7 text-center font-semibold text-gray-900">
+                                            Création de flyers pour Ama Tu Luna
+                                        </h3>
+                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                            L'Association <strong>Ama Tu Luna</strong> vend des serviettes hygiéniques
+                                            lavables. Les
+                                            bénéfices servent à ouvrir des <strong>ateliers solidaires</strong> dans des
+                                            quartiers
+                                            pauvres d'Argentine, du Kenya et d'Inde.</br>
+                                            J'ai réalisé pour eux, <strong>avec Photoshop, des brochures informatives et
+                                                les notices</strong> fournies
+                                            avec les serviettes en 4 langues (francais, italien, anglais et espagnol)
+                                            ainsi qu'un calendrier lunaire pour suivre son cycle menstruel.
+                                        </p>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a href="img/book_edujardin_amatuluna.pdf" target="_blank"
+                                            class="text-purple-600">
+                                            Visualiser le book
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Deuxième ligne-->
+                    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
+                        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                            <div class="flex-shrink-0">
+                                <img class="h-60 w-full object-cover" src="img/amatulunaweb.png" alt="" />
+                            </div>
+                            <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                                <div class="flex-1">
+                                    <p class="text-sm leading-5 font-medium text-purple-600">
+                                        <a href="#" class="hover:underline">
+                                            Web
+                                        </a>
+                                    </p>
+                                    <div class="block">
+                                        <h3 class="mt-2 text-xl text-center leading-7 font-semibold text-gray-900">
+                                            Création du site web de Ama Tu Luna
+                                        </h3>
+                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                            Toujours pour l'association Ama Tu Luna, j'ai entièrement <strong>réalisé
+                                                leur site web</strong>. Il présente les serviettes mises en vente ainsi
+                                            que les différents projets humanitaires de l'association.</br>
+                                            Les responsables de l'association (un italien et une argentine et avec qui
+                                            je communique en espagnol ou en anglais), m'ont demandé de <strong>créer ce
+                                                site via l'outil Mobirise</strong> qui permet de créer un site web
+                                            facilement, tout en ayant accès aux pages HTML et aux fiches de style CSS si
+                                            besoin.
+                                        </p>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a href="https://www.amatuluna.com/" target="_blank" class="text-purple-600">
+                                            Visiter amatuluna.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                            <div class="flex-shrink-0">
+                                <img class="h-60 w-full object-cover" src="img/edm.png" alt="" />
+                            </div>
+                            <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                                <div class="flex-1">
+                                    <p class="text-sm leading-5 font-medium text-purple-600">
+                                        <a href="#" class="hover:underline">
+                                            Graphisme
+                                        </a>
+                                    </p>
+                                    <div class="block">
+                                        <h3 class="mt-2 text-center text-xl leading-7 font-semibold text-gray-900">
+                                            Design d'affiches pour une école de musique
+                                        </h3>
+                                        <p class="mt-3 text-base leading-6 text-gray-500">
+                                            De 2010 à 2016, l'école de musique de ma commune a fait appel à moi pour
+                                            <strong>la création des affiches de ses spectacles, ainsi que de ses
+                                                brochures informatives.</strong></br>
+                                            Lors de mon BTS Animation et Gestion Touristiques Locales, un de mes projets
+                                            a été d'<strong>organiser une semaine de célébrations pour les 30 ans de
+                                                l'école de musique</strong>, en collaboration avec son directeur et les
+                                            enseignants.
+                                        </p>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a href="img/book_edujardin_affiches.pdf" target="_blank"
+                                            class="text-purple-600">
+                                            Visualiser le book
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Contact-->
+        <div>
+            <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+                <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
+            </svg>
+        </div>
+        <div id="contact">
+            <div class="overflow-hidden mt-10">
+                <div class="px-4 py-3 sm:px-6 flex justify-center">
+                    <h2 class="text-2xl text-center font-extrabold text-white sm:text-3xl sm:leading-9">
+                        CONTACT
+                        <svg height="6" width="200" class="mt-2">
+                            <line x1="0" y1="0" x2="200" y2="0" style="stroke:rgb(255, 255, 255);stroke-width:5" />
+                        </svg>
+                    </h2>
+                </div>
+                <div class="px-4 sm:px-6">
+                    <p class="text-lg leading-7 italic text-gray-500 mb-4 text-center">
+                        Je suis activement à la recherche d'un contrat de professionnalisation.</br> N'hésitez pas à
+                        me
+                        contacter.
+                    </p>
+                    <div class="flex justify-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-purple-600" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+                        <div class="ml-3 text-base leading-6 text-gray-200">
+                            <p>
+                                +33(0)6.62.89.03.64
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex justify-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-purple-600" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="ml-3 text-base leading-6 text-gray-200">
+                            <p>
+                                dujardin-elise@orange.fr
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex justify-center">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-purple-600" role="img" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <title>LinkedIn icon</title>
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </div>
+                        <div class="ml-3 mb-5 text-base leading-6 text-gray-200">
+                            <a href="https://www.linkedin.com/in/elise-dujardin/" target="_blank">
+                                @elise-dujardin
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
